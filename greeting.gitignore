@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление бабушке</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #fce4ec;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: relative;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.88);
+            padding: clamp(1.5rem, 5vw, 3rem);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+            color: #4a2c3a;
+        }
+        h1 {
+            color: #ad1457;
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            margin-bottom: 0.8em;
+        }
+        p {
+            text-indent: 1.5em;
+            margin-bottom: 1em;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+        }
+        .flowers {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            line-height: 2;
+            color: #f06292;
+            user-select: none;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .flowers-left { left: 8px; }
+        .flowers-right { right: 8px; }
+        @media (max-width: 768px) {
+            .flowers { display: none; }
+            body { padding: 10px; }
+            .container { padding: 1.5rem; margin: 10px auto; }
+            p { text-indent: 1em; }
+        }
+        .music-box {
+            text-align: center;
+            margin: 1.5em 0;
+        }
+        .music-btn {
+            background-color: #f06292;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 3px 10px rgba(240, 98, 146, 0.4);
+        }
+        .music-btn:hover { background-color: #ec407a; }
+        .music-btn:active { transform: scale(0.96); }
+        .music-btn:disabled {
+            background-color: #f8bbd0;
+            cursor: default;
+            box-shadow: none;
+        }
+        .arrow-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5em;
+            font-size: clamp(2.2rem, 6vw, 3rem);
+            color: #ad1457;
+            text-decoration: none;
+            transition: transform 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .arrow-link:hover { transform: translateX(8px); }
+        .arrow-link:active { transform: scale(0.9); }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ad1457;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            padding: 12px;
+            border-radius: 30px;
+            transition: background 0.2s;
+        }
+        .back-link:hover { background: #fce4ec; text-decoration: underline; }
+        .back-link:active { background: #f8bbd0; }
+        .signature {
+            text-align: right;
+            font-weight: bold;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin-top: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="flowers flowers-left">
+        🌸<br>🌺<br>🌹<br>🌷<br>🌸<br>🌺<br>🌹<br>🌷<br>🌸<br>🌺
+    </div>
+    <div class="flowers flowers-right">
+        🌷<br>🌹<br>🌺<br>🌸<br>🌷<br>🌹<br>🌺<br>🌸<br>🌷<br>🌹
+    </div>
+
+    <div class="container">
+        <h1>Дорогая бабушка!</h1>
+        <p>Поздравляю тебя с 77-летием! Это прекрасный возраст, когда за плечами — большой жизненный путь, а рядом — любящая семья. Ты вырастила двух замечательных детей, и я — очень горжусь тем, что ты у нас есть.</p>
+        <p>Спасибо тебе за тепло, заботу и мудрость, которые ты щедро даришь нам всем. Желаю тебе крепкого здоровья, бодрости духа, радости каждый день и долгих лет жизни в окружении близких. Пусть в твоём доме всегда будет уютно, а на душе — спокойно и светло.</p>
+        <p class="signature">Мы тебя очень любим и крепко обнимаем!</p>
+
+        <!-- АУДИО -->
+        <div class="music-box">
+            <audio id="bg-music" src="https://sueta.net/files/music/2023/03/Mixaylov_Stas_-_Vse_dlya_tebya.mp3" loop preload="auto"></audio>
+            <button class="music-btn" id="music-btn" type="button">🎵 Включить музыку</button>
+        </div>
+
+        <!-- СТРЕЛКА -->
+        <a href="image.html" class="arrow-link" title="Открыть открытку">→</a>
+
+        <a href="index.html" class="back-link">⟵ Вернуться на главную</a>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const btn = document.getElementById('music-btn');
+
+        // Пытаемся включить музыку сразу (браузер может заблокировать)
+        audio.volume = 0.7;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Автозапуск разрешён — прячем кнопку
+                btn.style.display = 'none';
+            }).catch(() => {
+                // Автозапуск заблокирован — оставляем кнопку
+            });
+        }
+
+        // Кнопка для ручного включения (и паузы)
+        btn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = '⏸ Пауза';
+            } else {
+                audio.pause();
+                btn.textContent = '🎵 Включить музыку';
+            }
+        });
+
+        audio.addEventListener('pause', () => {
+            btn.textContent = '🎵 Включить музыку';
+        });
+        audio.addEventListener('play', () => {
+            btn.textContent = '⏸ Пауза';
+        });
+    </script>
+</body>
+</html>
